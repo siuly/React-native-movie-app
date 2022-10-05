@@ -1,7 +1,7 @@
 import { Box, Button, Heading, Image, Text, VStack } from 'native-base'
 
 const MovieCard = props => {
-  const { image, title,title_tv, navigation, popularity, release_date, overview, movieID, category } = props
+  const { image, title,title_tv, navigation,media_type, popularity, release_date, overview, movieID, category } = props
   // console.log(category)
   return (
    
@@ -19,6 +19,7 @@ const MovieCard = props => {
               navigation.navigate('Details', {
                 itemId: movieID,
                 category: category,
+                media_type: media_type,
               })
             }}
           >

@@ -17,7 +17,7 @@ const fetchData = async() =>{
     try {
         const data = await getMovieSearch(type, query)
         setMovies(data.results)
-        console.log(type)
+        
     } catch (error) {
         throw error
         
@@ -29,7 +29,7 @@ const fetchData = async() =>{
     <Container>
       <Center px={2}>
         <SearchForm setQuery={setQuery} setType={setType} fetchData={fetchData}/>
-        {isLoading ? <Loading /> : <MoviesList movies={movies} navigation={navigation} />}
+        {isLoading ? <Loading /> : <MoviesList movies={movies} navigation={navigation} type={type} />}
       </Center>
     </Container>
   )

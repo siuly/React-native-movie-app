@@ -12,7 +12,7 @@ const TVContainer = ({ navigation }) => {
   const [tvType, setTVType] =useState('popular')
   const [tvShows, setTVShows] =useState({})
 
-
+  const categoryT = 'tv';
  
   useEffect(() =>{
 
@@ -41,7 +41,7 @@ const TVContainer = ({ navigation }) => {
       <Center px={4}>
         <TVForm tvSetType = {setTVType} tvType={tvType}/>
         {/* tvShows = {movies} this  is how  we pass props  between files  */}
-        {isLoading ? <Loading /> : <MoviesList movies={tvShows}  navigation={navigation} categoryT={"tv"}/>}
+        {isLoading ? <Loading /> : <MoviesList movies={tvShows}  navigation={navigation} categoryT={categoryT}/>}
       </Center>
     </Container>
   )

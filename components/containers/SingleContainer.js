@@ -13,15 +13,16 @@ const SingleContainer = ({route, navigation}) => {
 
     async function fetchData() {
       try{
+        // console.log(`category first: ${category} media_Type: ${media_type}`)
         let categoryType = category 
-        if (category === 'tv'|| category === undefined) {
+        if (categoryType === 'movie' || categoryType === 'tv') {
+          categoryType = category
+        }else if (media_type === undefined) {
           categoryType = 'tv'
+        }else {
+          categoryType = media_type
         }
-        else if (category === 'movie' ) {
-          categoryType = 'movie'
-          
-        }
-        console.log(`category: ${category} categoryType: ${categoryType} mediaType ${media_type}`)
+        // console.log(`category: ${category} categoryType: ${categoryType} mediaType ${media_type}`)
         const TVDetails = await getDetail(categoryType, itemId)
        
         

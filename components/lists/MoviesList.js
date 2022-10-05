@@ -2,13 +2,15 @@ import { FlatList, Text } from 'native-base'
 import MovieCard from '../listItems/MovieCard'
 
 const MoviesList = props => {
-  const { navigation, movies, categoryM, categoryT} = props
+  const { navigation, movies, categoryM, categoryT, type} = props
   let category = categoryM 
-  if (categoryM === null || categoryM === 'movie') {
+  if ( categoryM === 'movie') {
     category = categoryM
     
-  }else{
+  }else if(categoryT === 'tv'){
     category = categoryT
+  }else{
+    category = type
   }
   return (
     <>
