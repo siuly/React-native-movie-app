@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import DetailScreen from '../screens/DetailScreen'
-import IndexScreen from '../screens/IndexScreen'
 import MovieScreen from '../screens/MovieScreen'
+import TabNavigation from './TabNavigation'
 
 const Stack = createNativeStackNavigator()
 
@@ -13,7 +13,7 @@ const AppStack = props => {
     <Stack.Navigator>
       <Stack.Screen
         name='Index'
-        component={IndexScreen}
+        component={TabNavigation}
         options={{
           title: 'Movie App',
           headerStyle: {
@@ -26,7 +26,8 @@ const AppStack = props => {
       />      
       <Stack.Screen name='Details' component={DetailScreen} 
       options={{
-          headerBackTitle: 'Bacl to List',
+          headerBackTitleVisible: 'true',
+          headerBackTitle: 'Back to List',
           headerStyle: {
             alignItems: 'center'
           },

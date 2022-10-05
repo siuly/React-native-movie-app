@@ -1,16 +1,17 @@
 import { useEffect, useState } from 'react'
 import { Center, Container } from 'native-base'
-import { getMovies } from '../../services/api'
-import Form from '../forms/Form'
+import { getMovies,getTV } from '../../services/api'
+import MovieForm from '../forms/Form'
 import Loading from '../layout/Loading'
 import MoviesList from '../lists/MoviesList'
+import TVForm from '../forms/TVForm'
 
 const MoviesListContainer = ({ navigation }) => {
   const [isLoading, setIsLoading] = useState(false)
   const [movieType, setMovieType] =useState('popular')
-  const [movies, setMovies] =useState([])
+  const [movies, setMovies] =useState({})
 
-
+  const categoryM = 'movie';
  
   useEffect(() =>{
 
@@ -18,7 +19,6 @@ const MoviesListContainer = ({ navigation }) => {
       try{
 
       const movie = await getMovies(movieType)
-      
       setMovies(movie.results)
       
       }
@@ -32,14 +32,15 @@ const MoviesListContainer = ({ navigation }) => {
 
   },[movieType])
 
+  // useEffect(()=>{
+  //   console.log(JSON.stringify(movies, null, 2))
+  // },[movies])
 
   return (
     <Container>
       <Center px={4}>
-        <Form movieSetType = {setMovieType}/>
-        {/* <Form fetchMovies={fetchMovies} onInputChange={handleInputChange} /> */}
-
-        {isLoading ? <Loading /> : <MoviesList movies={movies} navigation={navigation} />}
+        <MovieForm movieSetType = {setMovieType}/> 
+         {isLoading ? <Loading /> : <MoviesList movies={movies} navigation={navigation} categoryM={categoryM}/>}
       </Center>
     </Container>
   )
