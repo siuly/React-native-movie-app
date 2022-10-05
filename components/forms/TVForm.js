@@ -15,6 +15,7 @@ const TVForm = props => {
           <Select.Item label="Airing Today" value="airing_today" />
           <Select.Item label="On the air" value="on_the_air" />
           <Select.Item label="Popular" value="popular" />
+          <Select.Item label="Top Rated" value="top_rated" />
         </Select>
         </FormControl>
 
