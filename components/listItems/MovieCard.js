@@ -20,6 +20,7 @@ const MovieCard = props => {
                 itemId: movieID,
                 category: category,
                 media_type: media_type,
+                title: title,
               })
             }}
           >

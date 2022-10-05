@@ -19,7 +19,7 @@ const MoviesList = props => {
       renderItem={({ item }) => (
         <MovieCard
           image={"https://image.tmdb.org/t/p/w500" + item.poster_path}
-          title={item.title}
+          title={item.original_title}
           title_tv={item.original_name}
           release_date={item.release_date}
           popularity={item.popularity}
